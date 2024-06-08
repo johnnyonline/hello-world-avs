@@ -49,7 +49,8 @@ contract HelloWorldServiceManager is
     constructor(
         address _avsDirectory,
         address _stakeRegistry,
-        address _delegationManager
+        address _delegationManager,
+        address _owner
     )
         ECDSAServiceManagerBase(
             _avsDirectory,
@@ -57,8 +58,9 @@ contract HelloWorldServiceManager is
             address(0), // hello-world doesn't need to deal with payments
             _delegationManager
         )
-    {}
-
+    {
+        _transferOwnership(_owner);
+    }
 
     /* FUNCTIONS */
     // NOTE: this function creates new task, assigns it a taskId

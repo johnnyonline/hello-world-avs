@@ -238,7 +238,8 @@ contract HelloWorldDeployer is Script, Utils {
         helloWorldServiceManagerImplementation = new HelloWorldServiceManager(
             address(avsDirectory),
             address(stakeRegistryProxy),
-            address(delegationManager)
+            address(delegationManager),
+            address(0)
         );
         // Third, upgrade the proxy contracts to use the correct implementation contracts and initialize them.
         helloWorldProxyAdmin.upgrade(
